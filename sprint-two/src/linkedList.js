@@ -25,16 +25,17 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    var holder = list.head;
-    var doesContain = false;
-    while (holder.next) {
-      doesContain = (holder.value === target);
-      if (doesContain) {
-        return doesContain;
+    var current = list.head;
+    while (current.next) {
+      if (current.value === target) {
+        return true;
       }
-      holder = holder.next;
+      current = current.next;
     }
-    return doesContain;
+    if (current.value === target) {
+      return true;
+    }
+    return false;
   };
 
   return list;
