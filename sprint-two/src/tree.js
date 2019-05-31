@@ -35,4 +35,6 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild - O(1)
+ contains - O(n squared?) I wasn't sure if recursing within the for loops counts as that
  */
