@@ -5,7 +5,6 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function(value) {
-  // check if less or more
   var tree = new BinarySearchTree(value);
 
   if (tree.value < this.value) {
@@ -26,9 +25,6 @@ BinarySearchTree.prototype.insert = function(value) {
 };
 
 BinarySearchTree.prototype.contains = function(value) {
-  // check if current tree has value
-  // check if value is less than or greater than current value
-  // run contains on that 
   if (this.value === value) {
     return true;
   } else if (value < this.value && this.left) {
@@ -40,7 +36,13 @@ BinarySearchTree.prototype.contains = function(value) {
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
-
+  cb(this.value); 
+  if (this.left) {
+    this.left.depthFirstLog(cb);
+  }
+  if (this.right) {
+    this.right.depthFirstLog(cb);
+  }
 };
 /*
  * Complexity: What is the time complexity of the above functions?
