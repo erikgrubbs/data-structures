@@ -41,7 +41,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
   if (edgeIndex < 0) {
     edgeIndex = this.edges.indexOf(toNode + ' ' + fromNode);
   }
-  edges = this.edges.splice(edgeIndex, 1);
+  this.edges.splice(edgeIndex, 1);
 };
 
 // Pass in a callback which will be executed on each node of the graph.

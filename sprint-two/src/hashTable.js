@@ -7,14 +7,21 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  //check if index is used
+  this._storage.set(index, v);
+  // associate it with a different open index but retain the key HOW?!
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  // check 
+  return this._storage.get(index);
+
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  this._storage.set(index, undefined);
 };
 
 
