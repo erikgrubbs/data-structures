@@ -47,6 +47,12 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should handle mixed data types', function() {
+    hashTable.insert('hashThis', 4);
+    hashTable.insert('hashYouMan', false);
+    expect(hashTable.retrieve('hashThis')).to.equal(4);
+    expect(hashTable.retrieve('hashYouMan')).to.equal(false);
+  });
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {

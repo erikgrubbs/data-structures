@@ -28,6 +28,13 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.contains(8)).to.equal(false);
   });
 
+  it('should handle duplicates', function() {
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(3);
+    expect(binarySearchTree.left.value).to.equal(3);
+    expect(binarySearchTree.left.left).to.equal(undefined);
+  });
+
   it('should execute a callback on every value in a tree using "depthFirstLog"', function() {
     var array = [];
     var func = function(value) { array.push(value); };

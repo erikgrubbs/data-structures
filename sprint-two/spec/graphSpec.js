@@ -68,4 +68,38 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should handle checking edges in either direction', function() {
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addNode(6);
+    graph.addEdge(5, 6);
+    graph.addEdge(6, 4);
+    graph.addEdge(4, 5);
+    expect(graph.hasEdge(6, 5)).to.equal(true);
+    expect(graph.hasEdge(4, 6)).to.equal(true);
+    expect(graph.hasEdge(5, 4)).to.equal(true);
+  });
+
+  it('should work with multiple data types', function() {
+    graph.addNode('a');
+    graph.addNode(5);
+    graph.addEdge('a', 5);
+    expect(graph.hasEdge(5, 'a')).to.equal(true);
+  });
+
+  it('should keep the other edges a node has after deleting one in either direction', function() {
+    graph.addNode('a');
+    graph.addNode('b');
+    graph.addNode('c');
+    graph.addNode('d');
+    graph.addEdge('a', 'b');
+    graph.addEdge('a', 'c');
+    graph.addEdge('a', 'd');
+    graph.addEdge('c', 'b');
+    graph.removeEdge('b', 'a');
+    expect(graph.hasEdge('b', 'c')).to.equal(true);
+    expect(graph.hasEdge('d', 'a')).to.equal(true);
+  });
+
 });
